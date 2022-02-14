@@ -1,4 +1,4 @@
-class Bookmarks
+class Bookmark
   attr_reader :list_bookmarks
 
   def initialize

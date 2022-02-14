@@ -1,6 +1,6 @@
-require_relative '../lib/bookmarks.rb'
+require_relative '../lib/bookmark.rb'
 
-describe Bookmarks do
+describe Bookmark do
   subject(:bookmarks) { described_class.new }
 
   it { is_expected.to respond_to(:show_list) }
