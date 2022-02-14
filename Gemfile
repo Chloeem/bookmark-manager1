@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby '3.1.0'
+ruby '3.0.2'
 
 group :development, :test do
   gem 'rspec'
@@ -11,5 +11,5 @@ group :development, :test do
   gem 'rubocop'
   gem 'simplecov'
   gem 'simplecov-console'
-  gem 'sinatra/reloader'
+  gem 'sinatra-contrib'
 end

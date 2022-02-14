@@ -1,2 +1,2 @@
 require './app'
-run Bookmark
+run BookmarkManager
