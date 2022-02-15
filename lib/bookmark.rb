@@ -1,4 +1,6 @@
+require 'pg'
 class Bookmark
+
   attr_reader :list_bookmarks
 
   def initialize
@@ -6,6 +8,9 @@ class Bookmark
   end
 
   def show_list
-    list_bookmarks.join(', ')
+    connection = PG.connect(dbname: 'bookmarkmanager')
+    result = connection.exec('SELECT * FROM bookmarks;')
+    result.map { |bookmark| bookmark['url'] }
+    #list_bookmarks.join(', ')
   end
 end
