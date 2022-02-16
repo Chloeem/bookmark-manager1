@@ -1,11 +1,19 @@
 require_relative '../lib/bookmark.rb'
 
 describe Bookmark do
-  subject(:bookmarks) { described_class.new }
 
-  it { is_expected.to respond_to(:show_list) }
+  it 'returns a list of bookmarks' do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
 
-  it 'returns a list of saved bookmarks' do
-    expect(bookmarks.show_list).to eq ['http://www.makersacademy.com/', 'http://www.google.com/', 'http://www.destroyallsoftware.com/']
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+
+    bookmarks = Bookmark.all
+
+    expect(bookmarks).to include('http://www.makersacademy.com')
+    expect(bookmarks).to include('http://www.destroyallsoftware.com')
+    expect(bookmarks).to include('http://www.google.com')
   end
+  
 end

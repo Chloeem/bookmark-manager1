@@ -1,16 +1,15 @@
 require 'pg'
+
 class Bookmark
-
-  attr_reader :list_bookmarks
-
-  def initialize
-    @list_bookmarks = ['www.makers.tech', 'www.google.com', 'www.amazon.com']
-  end
-
-  def show_list
-    connection = PG.connect(dbname: 'bookmarkmanager')
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmarkmanager')
+    end
+  
     result = connection.exec('SELECT * FROM bookmarks;')
     result.map { |bookmark| bookmark['url'] }
-    #list_bookmarks.join(', ')
   end
+
 end

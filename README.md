@@ -4,10 +4,16 @@ A website to maintain a collection of bookmarks (URLs). Where a user can save a 
 ----
 <br>
 
-## How to set up a database
+## How to set up a development database
 1. Connect to ```psql```
 2. Create a database using the ```psql``` command ```CREATE DATABASE bookmarkmanager```;
 3. Connect to the database using the ```psql``` command ```\c bookmarkmanager;```
+4. Run the query we saved in the file: <a href='01_create_bookmarks_table.sql'>Migrations</a>
+
+## How to set up a testing database
+1. Connect to ```psql```
+2. Create a database using the ```psql``` command ```CREATE DATABASE bookmark_manager_test```;
+3. Connect to the database using the ```psql``` command ```\c  bookmark_manager_test;```
 4. Run the query we saved in the file: <a href='01_create_bookmarks_table.sql'>Migrations</a>
 
 <br>
