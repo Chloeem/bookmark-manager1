@@ -32,3 +32,10 @@ I'd like to see a list of all my saved bookmarks
 ### Domain Model 1:
 <br>
 <img src='./images/user_story1.png'>
+
+```
+2:
+As a User
+So that I can come back to my bookmarks at a later date
+I'd like to be able to add new bookmarks
+```
